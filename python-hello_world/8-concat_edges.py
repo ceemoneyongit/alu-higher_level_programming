@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 word = "object-oriented programming with Python"
 language = "Python"
-print(word[:33] + language)
+print(word[:33] + word[33:])
 
