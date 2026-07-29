@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+"""Script that reads stdin line by line and computes metrics."""
 import sys
+
 
 total_size = 0
 status_counts = {}
@@ -8,6 +10,7 @@ line_count = 0
 
 
 def print_stats():
+    """Print total file size and number of lines by status code."""
     print("File size: {}".format(total_size))
     for code in sorted(status_counts.keys()):
         print("{}: {}".format(code, status_counts[code]))
