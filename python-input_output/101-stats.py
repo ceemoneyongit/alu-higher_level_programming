@@ -31,3 +31,5 @@ try:
 except KeyboardInterrupt:
     print_stats()
     raise
+
+print_stats()
