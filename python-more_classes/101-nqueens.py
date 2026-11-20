@@ -1,42 +1,21 @@
 #!/usr/bin/python3
-"""Module that solves the N queens problem."""
+"""Module that solves the N queens problem using backtracking."""
 import sys
 
 
-def is_safe(board, row, col):
-    """Check if placing a queen at row, col is safe.
-
-    Args:
-        board (list): Current board state.
-        row (int): Row to check.
-        col (int): Column to check.
-
-    Returns:
-        bool: True if safe, False otherwise.
-    """
-    for r, c in board:
-        if c == col or abs(r - row) == abs(c - col):
-            return False
-    return True
-
-
-def solve(board, row, n, solutions):
-    """Solve the N queens problem using backtracking.
-
-    Args:
-        board (list): Current board state.
-        row (int): Current row being processed.
-        n (int): Size of the board.
-        solutions (list): List to store all solutions.
-    """
+def solve(n, row, cols):
+    """Print every solution by placing one queen per row."""
     if row == n:
-        solutions.append(board[:])
+        print([[r, c] for r, c in enumerate(cols)])
         return
     for col in range(n):
-        if is_safe(board, row, col):
-            board.append([row, col])
-            solve(board, row + 1, n, solutions)
-            board.pop()
+        safe = True
+        for r, c in enumerate(cols):
+            if c == col or abs(c - col) == row - r:
+                safe = False
+                break
+        if safe:
+            solve(n, row + 1, cols + [col])
 
 
 if __name__ == "__main__":
@@ -51,7 +30,4 @@ if __name__ == "__main__":
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
-    solutions = []
-    solve([], 0, n, solutions)
-    for solution in solutions:
-        print(solution)
+    solve(n, 0, [])
