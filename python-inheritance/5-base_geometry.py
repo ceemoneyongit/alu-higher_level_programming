@@ -3,5 +3,5 @@
 
 
 class BaseGeometry:
-    """A class that defines base geometry."""
+    """An empty class that defines a base geometry."""
     pass

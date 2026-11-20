@@ -1,18 +1,13 @@
 #!/usr/bin/python3
-"""Module that defines a full Rectangle class inheriting from BaseGeometry."""
+"""Module that defines a Rectangle class with area and description."""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """A class that defines a full rectangle using BaseGeometry."""
+    """A class that defines a rectangle."""
 
     def __init__(self, width, height):
-        """Initialize a Rectangle instance.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-        """
+        """Initialize the rectangle with a validated width and height."""
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
@@ -23,5 +18,5 @@ class Rectangle(BaseGeometry):
         return self.__width * self.__height
 
     def __str__(self):
-        """Return string description of the rectangle."""
+        """Return the description [Rectangle] <width>/<height>."""
         return "[Rectangle] {}/{}".format(self.__width, self.__height)

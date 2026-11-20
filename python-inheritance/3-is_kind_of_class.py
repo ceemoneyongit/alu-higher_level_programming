@@ -1,15 +1,7 @@
 #!/usr/bin/python3
-"""Module that defines is_kind_of_class function."""
+"""Module that defines a function checking for a class or a subclass."""
 
 
 def is_kind_of_class(obj, a_class):
-    """Return True if obj is an instance of a_class or its subclass.
-
-    Args:
-        obj: The object to check.
-        a_class: The class to compare against.
-
-    Returns:
-        bool: True if obj is an instance of a_class or inherited class.
-    """
+    """Return True if obj is an instance of a_class or of a subclass."""
     return isinstance(obj, a_class)
